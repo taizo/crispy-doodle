@@ -1,0 +1,21 @@
+machine:
+  environment:
+    XCODE_SCHEME: test
+    XCODE_WORKSPACE: test
+    XCODE_PROJECT: test
+
+  xcode:
+    version: 7.3
+
+dependencies:
+  pre:
+    - brew cask install xquartz
+    - brew install wine
+    - brew install mono
+
+test:
+  override:
+    - npm run dist:
+        timeout: 600
+  post:
+    - mv dist $CIRCLE_ARTIFACTS
