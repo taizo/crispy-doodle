@@ -1,3 +1,9 @@
+general:
+  branches:
+    only:
+      - develop
+      - /feature.*/
+
 machine:
   environment:
     XCODE_SCHEME: test
